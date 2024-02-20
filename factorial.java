@@ -11,18 +11,30 @@ public class factorial {
         }
     }
 
-    public static void main(String[] args) {
+    // Resolver conflictos en getNumber()
+    public static BigInteger getNumber() {
         Scanner scanInput = new Scanner(System.in);
         System.out.print("Introduzca un numero: ");
         BigInteger num = BigInteger.valueOf(scanInput.nextLong());
+        scanInput.close();
+        return num;
+    }
 
+    // Resolver conflictos en showFac()
+    public static void showFac(BigInteger num) {
         if (num.compareTo(BigInteger.ZERO) < 0) {
             System.out.println("El factorial no está definido para números negativos");
         } else {
             BigInteger fac = fact(num);
             System.out.println("El factorial de " + num + " es " + fac);
         }
+    }
 
-        scanInput.close();
+    // Resolver conflictos en main()
+    public static void main(String[] args) {
+        BigInteger num = getNumber();
+        showFac(num);
     }
 }
+
+
